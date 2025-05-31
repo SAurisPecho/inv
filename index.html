@@ -1,11 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8"> 
+  <title>Invitación de Boda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    
+  <!-- PORTADA SOBRE -->
+  <div id="portada">
+    <div class="sobre-lado izquierdo"></div>
+    <div class="sobre-lado derecho"></div>
+    <div class="sello-contenedor" id="abrirInvitacion">
+      <div class="sello">
+        <span>D & J</span>
+        <div class="ramita"></div>
+      </div>
+      <div class="toca-aqui">Toca aquí</div>
+    </div>
+    <div class="cuerda">
+    </div>
+  </div>
+
+  <!-- BOTÓN DE MÚSICA FIJO -->
+  <button id="music-btn" class="music-btn" style="display:none;">
+    <span id="music-icon">
+      <!--(play) -->
+      <svg width="28" height="28" viewBox="0 0 28 28">
+        <polygon points="7,5 23,14 7,23" fill="#888"/>
+      </svg>
+    </span>
+  </button>
+  <!-- AUDIO DE FONDO -->
+  <audio id="bg-music" src="audio/musica.mp3"></audio>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div id="contenido" style="display:none;">
+    <!-- 1. Portada Romántica -->
+    <section class="seccion portada-romantica">
+      <section alt="Pareja" class="img-portada">
+      <h1 class="nombres-titulo">John & Dany</h1>
+      <div class="fecha-principal">31 ·08 ·2025</div>
+    </section>
+
+    <!-- 2. Bloque NOS CASAMOS -->
+    <section class="seccion-bloque-nos-casamos" id="seccion-bloque-nos-casamos">
+      <div class="bloque-linea-fondo">
+        <div class="linea-vertical"></div>
+        <div class="bloque-texto-centrado">
+          <div class="text-parte1">
+            <h2 class="titulo-seccion">Nos Casamos</h2>
+              <div class="text-con-mucha">
+                <h3 class="text-block2">Con mucha felicidad te invitamos a ser parte de este día.</h3>
+              </div>
+            </div>
+          </div>
+          <div class="invita-bloque">
+            <div class="divider-corto"></div>
+            <p class="nombre-invita">SR. LEONARDO VILLA Y SRA. CELESTE DUVALL</p>
+            <p class="pases-invita">Invitación válida por 2 pases</p>
+            <div class="divider-corto"> </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Bloque Bendición y Tarjetón -->
+    <section class="seccion bloque-bendicion">
+      <div class="bendicion-bg">
+        <div class="bendicion-padres">
+          <div class="bendicion-contenido">
+            <p>Con la Bendición de Dios y nuestros Padres</p>
+            <div class="tarjeton">
+              <div class="tarjeton-familias">
+                <div>
+                  <p>Lorena Gutierrez<br>Ernesto Parón</p>
+                </div>
+                <div>
+                  <p>Eugenia Salazar<br>Camilo Torres</p>
+                </div>
+              </div>
+              <div class="tarjeton-pareja">
+                <p>Participan en el Matrimonio de sus hijos</p>
+                <h3>John & Dany</h3>
+                <p>E invitan a la Recepción<br>Cuenca, 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="assets/rosa.webp" class="detalle-flores" >
+      </div>
+    </section>
+
+    <!-- 4. antes de cuenta regresiva -->
+    <section class="seccion momento-especial-texto">
+      <h2 class="titulo-momento-especial">El momento más especial de <span class="resaltado">NUESTRAS VIDAS</span> ha llegado</h2>
+      <p class="sub-momento-especial">Y hacer que la cuenta en el tiempo sea regresiva según la fecha</p>
+    </section>
+
+    <!-- 5. (Cuenta Regresiva) -->
+    <section class="seccion momento-especial" id="countdown-section">
+      <div class="countdown-bg">
+        <img src="assets/momento-especial.jpg" alt="Momento especial">
+        <div class="overlay"></div>
+      </div>
+      <div class="countdown-title">Sábado, 30 de Agosto 2025</div>
+      <div class="contador" id="countdown">
+        <div><span id="dias">00</span><span class="cd-label">Días</span></div>
+        <div><span id="horas">00</span><span class="cd-label">Horas</span></div>
+        <div><span id="min">00</span><span class="cd-label">Minutos</span></div>
+        <div><span id="seg">00</span><span class="cd-label">Segundos</span></div>
+      </div>
+      <button class="btn-calendario">AGREGAR A CALENDARIO</button>
+    </section>
+
+    <!-- 6. Padrinos Carrusel -->
+    <section class="seccion padrinos-carrusel" id="padrinos-section">
+      <div class="padrinos-title">Nada hace estos momentos más inolvidables que compartirlos con ustedes</div>
+      <div class="padrino-slide-titulo">Padrinos</div>
+      <div class="padrinos-carousel">
+        <button class="padrino-nav left" id="padrinoPrev">&#60;</button>
+        <div class="padrino-slide-wrap" id="padrinoSlideWrap"></div>
+        <button class="padrino-nav right" id="padrinoNext">&#62;</button>
+      </div>
+      <div class="padrino-dots" id="padrinoDots"></div>
+    </section>
+
+    <!-- 7. Itinerario -->
+    <section class="seccion itinerario" id="itinerario-section">
+        <h2><span class="itinerario-titulo">Nuestro</span> <span class="itinerario-script">Itinerario</span></h2>
+        <div class="itinerario-timeline" id="timeline"></div>
+    </section>
+
+    <!-- 8. Ubicaciones-->
+    <section class="seccion ubicaciones-seccion">
+      <div class="ubicacion-bloque iglesia">
+        <div class="ubicacion-titulo">Iglesia</div>
+        <div class="ubicacion-direccion">Parroquia San Juan Bautista, Calle Falsa 123</div>
+        <button class="ubicacion-btn">Ver en Google Maps</button>
+      </div>
+      <div class="ubicacion-bloque recepcion">
+        <div class="ubicacion-titulo">Recepción</div>
+        <div class="ubicacion-direccion">Salón Royal Eventos, Av. Principal 456</div>
+        <button class="ubicacion-btn">Ver en Google Maps</button>
+      </div>
+    </section>
+
+    <!-- 9. Pacto de Amor -->
+    <section class="seccion pacto-amor">
+      <h2>Pacto de Amor</h2>
+      <div class="pacto-firmas">
+        <img src="assets/foto-firmas.jpg" alt="Firmas" class="pacto-firmas-img">
+        <div class="firmas-nombres">
+          <div class="firma firma-novio">
+            <img src="assets/firma-novio.svg" alt="Firma Novio">
+            <div class="nombre-firma">John</div>
+          </div>
+          <div class="firma firma-novia">
+            <img src="assets/firma-novia.svg" alt="Firma Novia">
+            <div class="nombre-firma">Dany</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Nuestra Historia (título y carrusel) -->
+    <section class="seccion historia-titulo">
+      <h2>Nuestra Historia</h2>
+    </section>
+    <section class="seccion nuestra-historia" id="historia-section">
+      <div class="historia-wrap">
+        <button class="historia-nav left" id="historiaPrev">&#60;</button>
+        <div class="historia-slide" id="historiaSlide"></div>
+        <button class="historia-nav right" id="historiaNext">&#62;</button>
+      </div>
+      <div class="historia-dots" id="historiaDots"></div>
+    </section>
+
+    <!-- 11. El Novio y La Novia (animaciones de entrada) -->
+    <section class="seccion historia-pareja">
+      <div class="pareja-bloque">
+        <div class="pareja-img pareja-left">
+          <img src="assets/pareja1.jpg" alt="El novio">
+        </div>
+        <div class="pareja-text pareja-text-down">
+          <h3>El Novio</h3>
+          <div class="firma-nombre">John Torres</div>
+          <p>
+            Desde el primer instante en que nos conocimos, supe que había encontrado algo especial. Nuestra conexión fue instantánea y cada momento juntos ha sido un regalo. Eres mi amor a primera vista y la compañera con la que siempre soñé.
+          </p>
+        </div>
+      </div>
+      <div class="pareja-bloque">
+        <div class="pareja-img pareja-right">
+          <img src="assets/pareja2.jpg" alt="La novia">
+        </div>
+        <div class="pareja-text pareja-text-up">
+          <h3>La Novia</h3>
+          <div class="firma-nombre">Daniela Padrón</div>
+          <p>
+            Desde aquel encuentro, supe que había encontrado a alguien único. Nuestra conexión instantánea confirmó que estábamos destinados a estar juntos. Cada día contigo es un regalo y estoy emocionado por todo lo que nos espera. ¡Te amo con todo mi corazón!
+          </p>
+        </div>
+      </div>
+      <div class="pareja-foto-final">
+        <img src="assets/pareja3.jpg" alt="Pareja caminando">
+      </div>
+    </section>
+
+    <!-- 12. El Día que Cambió Todo (Galería con efecto hover) -->
+    <section class="seccion dia-cambio">
+      <h2 class="dia-cambio-titulo">El Día que <span class="itinerario-script">Cambió Todo</span></h2>
+      <p class="dia-cambio-desc">En ese instante, los dos dijimos 'sí' a una vida juntos, con todo nuestro amor.</p>
+      <div class="dia-cambio-galeria">
+        <img src="assets/cambio1.jpg" alt="Cambio 1" class="gal-img">
+        <img src="assets/cambio2.jpg" alt="Cambio 2" class="gal-img">
+        <img src="assets/cambio3.jpg" alt="Cambio 3" class="gal-img">
+      </div>
+      <div class="toca-cambiar">Toca para cambiar 👉</div>
+    </section>
+
+    <!-- 13. Mesa de Regalos y Transferencias --> 
+    <h2 class="mesa-titulo">Mesa de Regalos</h2>
+    <p class="regalos-presentacion">¡Tu presencia es lo más valioso para nosotros!</p>
+    <section class="seccion mesa-regalos">
+      
+      <div class="regalos-block-v2">
+        <!-- Columna izquierda -->
+        <div class="regalos-col">
+          <div class="regalo-box">
+            <hr class="regalos-divider">
+            <h3>SUKASA</h3>
+            <p>Lo que más valoramos es que nos acompañes en este día tan especial. Si deseas tener un detalle, hemos creado una lista de regalos disponible en Sukasa.</p>
+            <a href="https://www.sukasa.com/" target="_blank" class="regalo-btn">
+              <span style="margin-right:6px;">🎁</span>Ir a Mesa de Regalos
+            </a>
+            <hr class="regalos-divider">
+            <div class="lluvia"><h3>Lluvia de sobres</h3></div>
+            <p>La lluvia de sobres es una tradición en la que se regala a los novios dinero en efectivo en un sobre durante el evento.</p>
+            <span class="icono-sobre">✉️</span>
+            <hr class="regalos-divider">
+          </div>
+        </div>
+        <!-- Columna derecha -->
+        <div class="regalos-col">
+          <div class="regalo-box">
+            <h3>Transferencia</h3>
+            <p>La cercanía no es un requisito para expresar el amor y la ternura que sentimos.</p>
+            <p>Si así lo deseas, puedes hacer una transferencia, ¡será un placer para nosotros!</p>
+            <div class="transferencia-datos">
+              <div><strong>NOMBRE</strong></div>
+              <div><strong>BANCO</strong></div>
+              <div>0000-0000-0000</div>
+            </div>
+            <hr class="regalos-divider">
+            <div class="gracias-txt"><strong>Gracias</strong></div>
+            <p class="gracias-desc">Gracias por tu generoso apoyo, será un honor verte en nuestra celebración.</p>
+            <hr class="regalos-divider">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. Código de Vestimenta -->
+    <section class="seccion codigo-vestimenta">
+      <div class="vestimenta-iconos">
+        <img src="assets/icono-vestido.png" alt="Vestido">
+        <img src="assets/icono-smokin.png" alt="Smokin">
+      </div>
+      <h2>Código de Vestimenta</h2>
+      <p>Traje de Etiqueta</p>
+      <p>Ellos en smoking brillarán, ellas con vestido largo deslumbrarán... y juntos puntuales llegarán.</p>
+    </section>
+
+    <!-- 15. VIDEO antes de Confirmación de Asistencia -->
+    <section class="seccion video-romantico">
+      <video src="video/atardecer.mp4" class="video-play" preload="metadata"></video>
+    </section>
+
+    <!-- 16. Confirmación de Asistencia -->
+    <section class="seccion confirmacion">
+      <h2>Confirmación de Asistencia</h2>
+      <form class="form-confirmacion">
+        <div class="form-row">
+          <input type="text" placeholder="Nombre" required>
+          <input type="text" placeholder="Apellido" required>
+        </div>
+        <div class="form-row">
+          <input type="email" placeholder="Correo" required>
+          <select required>
+            <option>Sí, el estaré</option>
+            <option>No podré asistir, lo siento</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input type="text" placeholder="Restricciones alimenticias (opcional)">
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+      <p>Adultos a la Fiesta, Pequeños a la cama (Respetuosamente no niños)</p>
+    </section>
+
+    <!-- 17. Compartir fotos -->
+    <section class="seccion compartir-fotos">
+      <h2>#J&D</h2>
+      <p>Comparte tus fotos del evento con el #hashtag en Facebook e Instagram</p>
+      <img src="assets/foto-compartir.jpg" alt="Compartir fotos" class="img-compartir">
+    </section>
+
+    <!-- 18. Buenos deseos -->
+    <section class="seccion buenos-deseos">
+      <h2>Buenos Deseos</h2>
+      <form>
+        <input type="text" placeholder="Nombre" required>
+        <input type="text" placeholder="Canción que no puede faltar">
+        <textarea placeholder="Mensaje"></textarea>
+        <button type="submit">Enviar Buenos Deseos</button>
+      </form>
+    </section>
+
+    <!-- 19. Pase de admisión -->
+    <section class="seccion pase-admision">
+      <div class="pase-bg">
+        <img src="assets/foto-pase.jpg" alt="Pase de Admisión" class="img-pase">
+        <h3>Pase de Admisión</h3>
+        <p>ESTE PASE ES ÚNICO E INTRANSFERIBLE Y ES VÁLIDO PARA 2 PERSONAS</p>
+      </div>
+    </section>
+
+    <!-- 20. Contacto -->
+    <section class="seccion contacto">
+      <h2>Contacto</h2>
+      <div class="contacto-lista">
+        <div>
+          <img src="assets/icono-novia.png" alt="Novia" class="icono-contacto">
+          <p>Novia</p>
+          <button>Whatsapp</button>
+        </div>
+        <div>
+          <img src="assets/icono-novio.png" alt="Novio" class="icono-contacto">
+          <p>Novio</p>
+          <button>Whatsapp</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 21. GALERÍA FINAL Interactiva -->
+    <section class="seccion galeria-final">
+      <h2 class="galeria-titulo">Galeria</h2>
+      <div class="galeria-dividida" id="galeriaDividida"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Copyright © 2025 INVITACION</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,524 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #fff;
+    color: #2d2d2d;
+  }
+  #portada {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .sobre-lado {
+    position: absolute;
+    top: 0;
+    width: 45vw;
+    height: 100vh;
+    background: #f3f1ed;
+    box-shadow: 0 0 25px #bcae9a33;
+    z-index: 2;
+    transition: transform 1s cubic-bezier(0.77,0,0.18,1);
+  }
+  .sobre-lado.izquierdo { left: 0; clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);}
+  .sobre-lado.derecho { right: 0; clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);}
+  .cuerda {
+    position: absolute;
+    left: 0; right: 0; top: 46%;
+    height: 7px;
+    background: repeating-linear-gradient(to right, #ab9175, #b9a17c 8%, #ab9175 16%);
+    z-index: 4;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px #bcae9a33;
+  }
+  .sello-contenedor {
+    position: absolute;
+    left: 50%; top: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 10; display: flex; flex-direction: column; align-items: center; cursor: pointer;
+  }
+  .sello {
+    width: 80px; height: 80px; background: #b4946d;
+    border-radius: 50%; box-shadow: 0 4px 18px #bcae9a55;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Dancing Script', cursive; font-size: 2em; color: #fff;
+    position: relative; margin-bottom: 6px;
+  }
+  .sello span { z-index: 2; }
+  .sello .ramita { position: absolute; top: -18px; left: 42px; width: 46px; height: 36px; z-index: 1; }
+  .toca-aqui { font-size: 1em; color: #2d2d2d; margin-top: 10px; text-align: center;}
+  .portada-abierta .sobre-lado.izquierdo { transform: translateX(-120%) }
+  .portada-abierta .sobre-lado.derecho { transform: translateX(120%) }
+  .portada-abierta .sello-contenedor, .portada-abierta .cuerda { opacity: 0; pointer-events: none; }
+  #contenido {
+    display: none;
+    margin: 0;
+    background: #fff;
+    box-shadow: 0 4px 30px #bcae9a1a;
+    overflow: hidden;
+  }
+  .seccion {
+    margin: 0;
+    padding: 1.1em 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    text-align: center;
+  }
+   @media (max-width: 767px) {
+    .seccion-bloque-nos-casamos {
+      padding-top: 0;
+      background: #fff;
+    }
+  }
+  .titulo-seccion {
+    display: block; 
+    height: 1.1em;
+    line-height: 1.3em;
+    margin: 0; 
+    text-align: center;
+    font-family: "Mrs Saint Delafield", cursive ; 
+    font-size: 90px; 
+    font-weight: lighter; 
+    font-style: italic; 
+    color: #151616;
+    animation: slideUpFadeIn 0.7s ease-in-out both;
+  }
+  @keyframes slideUpFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px); 
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .text-parte1 {
+    padding: 10px;
+  }
+  .text-block2{ 
+    font-family: Poppins, sans-serif; 
+    font-size: 24px; 
+    font-weight: 200;
+    margin: 0; 
+    line-height: 0.8em;
+  }
+  .invita-bloque {
+    display:flex;
+    flex-direction: column;
+    background: url("assets/Documento-A4-Catalogo-De-Joyeria-Elegante-Beige.webp");
+    background-position: top center;
+    background-size: contain;
+    padding: 10px 8px;
+    margin-top: 24px;
+    gap: 20px;
+  }
+  .divider-corto {
+    width: 63%;
+    height: 1px;
+    background: #393c40;
+    margin: 15px auto;
+  }
+  .portada-romantica .img-portada { 
+    display: flex; 
+    min-height: 100vh; 
+    flex-direction: row;
+    width: initial;          
+    height: 100%;
+    flex-grow: 1;          
+    align-self: stretch;   
+    flex-wrap: wrap;
+    overflow: hidden;
+    /* opacity: 0.65; */
+    border-style: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 600px) {
+    .portada-romantica .img-portada{
+      flex-wrap: wrap;
+    }
+  }
+  .portada-romantica { background: #f7f4ef; border-bottom: none; padding: 0; border-radius: none;}
+  .nombres-titulo { text-align: center; align-items: center; width: 100%; display: block; margin: auto auto 0 auto; padding-bottom: 0; font-family: "Mrs Saint Delafield", cursive ; font-size: 100px; font-weight: lighter; font-style: italic; text-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3); color: #FFFFFF;}
+  .fecha-principal { text-align: center; align-items: center; width: 100%; display: block ;font-size: 30px; font-weight: lighter; font-style: italic; text-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3); color: #FFFFFF;}
+  .img-portada { width: 100%; border-radius: none; margin: 1em auto; display: block; background-image: url('assets/portada.webp'); background-position: center center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
+  .nombre-invita { font-size: 15px; font-family: "Aboreto", Sans-serif; margin: 0; }
+  .pases-invita {margin: 0; font-family: Poppins, sans-serif; font-size: 16px; font-weight: 300; color: #151616;}
+  .bendicion-padres { background-image: url('assets/D-J-Mockup-de-dispositivo-movil-480-x-768-px-2.svg'); filter: brightness(102%) contrast(100%) saturate(25%) blur(0px) hue-rotate(0deg); position:relative}
+  @media (max-width: 767px) {
+    .bendicion-padres {
+        height: 500px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 5px 45px;
+        position: relative;
+        text-align: center;
+    }
+  }
+  .detalle-flores { 
+    display: inline-block; 
+    vertical-align:sub; 
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  @media (max-width: 767px) {
+    .detalle-flores {
+        max-width: 82.172px;
+        width: 82.172px;
+        flex-grow: 0;
+        top: 25px;
+    }
+  }
+  .tarjeton { margin: 0 auto; padding: 1em; max-width: 340px; }
+  .tarjeton-familias { display: flex; justify-content: space-between; font-size: .95em;}
+  .tarjeton-pareja { margin-top: 1em;}
+  /* CUENTA REGRESIVA */
+  .momento-especial {position:relative; background:transparent;}
+  .countdown-bg {position:relative;}
+  .countdown-bg img {width:100%; border-radius:1em;}
+  .countdown-bg .overlay {position:absolute; inset:0; background:rgba(0,0,0,0.12); border-radius:1em;}
+  .countdown-title {position:absolute; left:0; right:0; top:20px; color:#fff; font-size:1.5em; font-family:'Montserrat',sans-serif; font-weight:700; text-shadow:0 2px 10px #0007;}
+  .contador {display:flex; justify-content:center; gap:.6em; margin:3em 0 1em 0;}
+  .contador div {background:rgba(255,255,255,.18); border:2px solid #fff; border-radius:.5em; min-width:54px; padding:.4em 0; color:#fff; font-size:1.1em;}
+  .contador span {display:block;}
+  .cd-label {font-size:.8em; margin-top:.2em;}
+  .btn-calendario {background: #bfae9c; color: #fff; border: none; border-radius: .6em; padding: .6em 1.3em; font-size: 1em; cursor: pointer; margin-top: .5em;}
+  /* PADRINOS CARRUSEL */
+  .padrinos-title {font-size:1.2em; margin-bottom:1.2em;}
+  .padrinos-carousel {display:flex; align-items:center; justify-content:center;}
+  .padrino-nav {background:none; border:none; font-size:2em; color:#222; cursor:pointer; z-index:2;}
+  .padrino-slide-wrap {width:230px; min-height:160px; overflow:hidden; position:relative;}
+  .padrino-slide {position:absolute; left:0; top:0; width:100%; opacity:0; transform:translateY(30px); transition:all .5s;}
+  .padrino-slide.active {opacity:1; transform:translateY(0);}
+  .padrino-slide .padrino-icon {width:70px; margin:0 auto;}
+  .padrino-slide .padrino-tipo {font-weight:700; font-size:1.1em;}
+  .padrino-slide .padrino-nombres {font-size:1.1em; margin-top:.7em;}
+  .padrino-dots {margin-top:.6em;}
+  .padrino-dot {display:inline-block; width:10px; height:10px; border-radius:50%; background:#bbb; margin:0 2px; cursor:pointer;}
+  .padrino-dot.active {background:#000;}
+  /* ITINERARIO */
+  .itinerario-titulo {font-family:'Montserrat',sans-serif; font-size:1.3em;}
+  .itinerario-script {font-family:'Dancing Script',cursive; font-size:2em;}
+  .itinerario-timeline {position:relative; margin:2em 0 0 0; min-height:500px;}
+  .timeline-base, .timeline-reveal {
+    position: absolute;
+    left: 50%;
+    width: 6px;
+    border-radius: 3px;
+    transform: translateX(-50%);
+  }
+  .timeline-base {
+    top: 0; height: 100%; background: #222; z-index: 1;
+  }
+  .timeline-reveal {
+    top: 0; height: 100%; background: #fff; z-index: 2;
+    transition: height 0.4s cubic-bezier(.33,.7,.4,1);
+  }
+  .timeline-event {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    opacity: 0.3;
+    transition: opacity .7s, transform .7s;
+  }
+  .timeline-event.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .timeline-event.izq .timeline-block { left: 12%; }
+  .timeline-event.der .timeline-block { right: 12%; }
+  .timeline-block {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 1em;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20px;
+    box-shadow: 0 1px 8px #bcae9a25;
+  }
+  .timeline-circle {
+    position: absolute;
+    left: 50%;
+    top: 45px;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 50%;
+    border: 4px solid #222;
+    width: 48px;
+    height: 48px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.15em;
+  }
+  .timeline-label {
+    position: absolute;
+    left: 50%;
+    top: 95px;
+    transform: translateX(-50%);
+    color: #222;
+    font-size: 1.08em;
+    font-weight: 700;
+  }
+  .timeline-hora {
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    transform: translateX(-50%);
+    color: #91785d;
+    font-size: .98em;
+  }
+  /* NUESTRA HISTORIA CARRUSEL */
+  .nuestra-historia {background:#f9f7f7;}
+  .historia-wrap {display:flex; align-items:center; justify-content:center;}
+  .historia-nav {background:none; border:none; font-size:2em; color:#333; cursor:pointer;}
+  .historia-slide {width:260px; min-height:240px; margin:0 1em; transition:all .5s;}
+  .historia-slide .historia-img {width:100%; border-radius:.9em;}
+  .historia-slide .historia-text {margin-top:1em; font-size:1.1em;}
+  .historia-dots {margin-top:.8em;}
+  .historia-dot {display:inline-block; width:11px; height:11px; border-radius:50%; background:#bbb; margin:0 3px; cursor:pointer;}
+  .historia-dot.active {background:#000;}
+  /* NOVIO/NOVIA ANIMACIONES */
+  .historia-pareja {background:#f7f5f1;}
+  .pareja-bloque {display:flex; align-items:center; justify-content:center; margin-bottom:2.2em;}
+  .pareja-img {width:130px; min-width:90px; opacity:0; transform:translateX(-70px); transition:all .8s;}
+  .pareja-img.pareja-right {transform:translateX(70px);}
+  .pareja-img.visible {opacity:1; transform:translateX(0);}
+  .pareja-text {max-width:220px; margin-left:1em; opacity:0; transition:all .8s;}
+  .pareja-text.pareja-text-down {transform:translateY(-60px);}
+  .pareja-text.pareja-text-up {transform:translateY(60px);}
+  .pareja-text.visible {opacity:1; transform:translateY(0);}
+  .pareja-foto-final {margin:1em 0 0 0;}
+  .pareja-foto-final img {width:90%;border-radius:1em;}
+  .firma-nombre {font-family:'Dancing Script',cursive;font-size:1.3em;}
+  /* DÍA QUE CAMBIÓ TODO GALERÍA */
+  .dia-cambio {background:#f7f4f3;}
+  .dia-cambio-titulo {font-size:1.3em; font-weight:700;}
+  .dia-cambio-desc {margin-bottom:1.1em;}
+  .dia-cambio-galeria {display:flex; gap:1.1em; justify-content:center;}
+  .dia-cambio-galeria .gal-img {width:32%; border-radius:.8em; transition:all .5s; cursor:pointer;}
+  .dia-cambio-galeria .gal-img:hover, .dia-cambio-galeria .gal-img.active {width:40%;}
+  .toca-cambiar {margin-top:.7em; color:#bfae9c; font-weight:700;}
+  /* Mesa de Regalos */
+
+  .mesa-regalos {
+    background: url('assets/a12b8c193ae8256c9ab02121c981a04e.jpeg') center/cover no-repeat;
+    background-attachment: fixed;
+    padding: 40px 0;
+  }
+
+  .mesa-titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+
+  .regalos-presentacion {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2em;
+  }
+
+  .regalos-block-v2 {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .regalos-col {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .regalos-col img {
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s; 
+  }
+  
+  .regalo-box {
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 0;
+    padding: 28px 24px 24px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .regalo-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.7em;
+    letter-spacing: 1px;
+  }
+
+  .regalos-divider {
+  border: none;
+  border-top: 2px solid #393c40;
+  margin: 32px 0;
+  width: 100%;
+  }
+
+  .regalo-btn {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 10px 22px;
+    background: #fff;
+    border: 1px solid #bba;
+    border-radius: 24px;
+    font-weight: bold;
+    color: #222;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .regalo-btn:hover {
+    background: #f7f7f7;
+  }
+
+  .lluvia {
+    margin-top: 18px;
+    padding-top: 18px;
+  }
+
+  .icono-sobre {
+    font-size: 1.6em;
+    display: block;
+    margin: 12px auto 0;
+  }
+
+  .transferencia-datos {
+    margin: 1.2em 0 0.7em 0;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+  }
+
+  .gracias-txt {
+    margin-top: 1.2em;
+    font-size: 1.1em;
+    padding-top: 0.7em;
+  }
+
+  .gracias-desc {
+    font-size: 0.98em;
+    color: #555;
+    margin-top: 0.5em;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .regalos-block-v2 {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .regalos-col {
+      width: 100%;
+    }
+  }
+  /* VIDEO */
+  .video-romantico {background:#fff;}
+  .video-play {width:100%; max-width:480px; display:block; margin:0 auto; border-radius:1em;}
+  /* RESTO */
+  .regalos-list {display: flex; flex-direction: column; align-items: center; gap: 1em;}
+  .regalo {background: #fbf8f5; border-radius: 1em; box-shadow: 0 1px 6px #ccc4b850; padding: 1em .6em; max-width: 220px;}
+  .lluvia-sobres {margin-top: 1em;}
+  .codigo-vestimenta {background: #f7f3ed;}
+  .confirmacion form, .buenos-deseos form {display: flex; flex-direction: column; gap: .5em; max-width: 350px; margin: 0 auto;}
+  .confirmacion select, .confirmacion input, .confirmacion textarea, .buenos-deseos input, .buenos-deseos textarea {border-radius: .5em; border: 1px solid #ccc; padding: .5em; font-size: 1em;}
+  .confirmacion button, .buenos-deseos button {background: #bfae9c; color: #fff; border: none; border-radius: .6em; padding: .6em 1.2em; font-size: 1em; cursor: pointer;}
+  .compartir-fotos {background: #fbf8f5;}
+  .img-compartir {width: 85%; margin: 1em auto 0 auto; display: block; border-radius: .7em;}
+  .pase-admision .img-pase {width:70%;max-width:240px;border-radius:1em;margin-bottom:.9em;}
+  .contacto-lista {display: flex; justify-content: center; gap: 1.7em; margin-top: 1em;}
+  .icono-contacto {width: 42px; margin-bottom: .4em;}
+  footer {margin: 2em 0 1em 0; text-align: center; color: #bfae9c; font-size: .95em;}
+  /* GALERÍA FINAL DIVIDIDA */
+  .galeria-final {background:#fff;}
+  .galeria-titulo {font-family:'Dancing Script',cursive;font-size:2em;}
+  .galeria-dividida {display:flex; width:100%; height:340px; max-width:100vw; overflow:hidden;}
+  .gal-div {flex:1; transition:all .4s; height:100%; position:relative; cursor:pointer; overflow:hidden;}
+  .gal-div img {width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; transition:all .4s;}
+  .gal-div.shrink {flex:0.6;}
+  .gal-div.expand {flex:2;}
+  /* BOTÓN DE MÚSICA FIJO */
+  .music-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 2px 10px #0002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .music-btn:active,
+  .music-btn.music-active {
+    background: #f7e9d7;
+  }
+  .music-btn svg {
+    display: block;
+  }
+  .music-btn .pause-lines {
+    display: flex;
+    gap: 8px;
+  }
+  .music-btn .pause-lines span {
+    display: inline-block;
+    width: 7px;
+    height: 26px;
+    background: #888;
+    border-radius: 2px;
+  }
+  @media (max-width:600px) {
+    #contenido {max-width:100vw; border-radius:.7em; padding:0;}
+    .img-portada {width:98%;}
+    .contador {gap:.3em;}
+    .padrino-slide-wrap, .historia-slide {width:92vw;min-width:0;}
+    .historia-slide {margin:0;}
+    .pareja-bloque {flex-direction:column;}
+    .pareja-img, .pareja-img.pareja-right {width:96vw; max-width:220px; transform:none;}
+    .pareja-text {margin-left:0;max-width:98vw;}
+    .dia-cambio-galeria {gap:.2em;}
+    .dia-cambio-galeria .gal-img {width:32%;}
+    .galeria-dividida {height:180px;}
+    .music-btn {width:42px;height:42px;right:10px;bottom:10px;}
+    .music-btn svg {width:24px;height:24px;}
+  }
